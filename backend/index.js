@@ -32,6 +32,12 @@ app.get('/products', async (req, res) => {
   res.send(allProducts);
 })
 
+app.post('/addproduct', async (req, res) => {
+  let newProduct= new products(req.body);
+  let result = await newProduct.save();
+  res.send(result); 
+})
+
 app.post("/register", async (req, res) => {
   let newuser = new users(req.body);
   let result = await newuser.save();

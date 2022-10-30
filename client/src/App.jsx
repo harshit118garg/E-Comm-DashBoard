@@ -10,6 +10,7 @@ import PrivateComp from "./components/PrivateComp";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
+import Products from "./pages/Products";
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
           <Route path="/" element={<Home />} />
 
           <Route element={<PrivateComp />}>
-            <Route path="/products" element={<h3>Product Page</h3>} />
+            <Route path="/products" element={<Products />} />
             <Route path="/add" element={<h3>Add Product Page</h3>} />
             <Route path="/update" element={<h3>Update Product Page</h3>} />
             <Route path="/profile" element={<h3>Profile Page</h3>} />

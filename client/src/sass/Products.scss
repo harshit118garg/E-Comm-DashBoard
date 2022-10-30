@@ -1,0 +1,50 @@
+.products {
+  padding: 2rem;
+  height: calc(92vh - 60px - 45px - 100px);
+
+  .productsContainer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+    overflow-y: scroll;
+    height: 100%;
+
+    .box {
+      height: 300px;
+      border: 1px solid black;
+
+      .image {
+        height: 48%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 1rem 2rem;
+
+        img {
+          height: 100%;
+        }
+      }
+
+      .content {
+        .left {
+          p {
+          }
+        }
+
+        .right {
+          p {
+          }
+        }
+      }
+      .subContent {
+        h4 {
+        }
+
+        h5 {
+        }
+      }
+    }
+  }
+}

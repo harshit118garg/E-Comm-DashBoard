@@ -1,0 +1,34 @@
+.home {
+  display: grid;
+  grid-template-rows: 200px auto;
+  place-items: center;
+  padding: 2rem;
+
+  .top {
+    img {
+      height: 200px;
+    }
+  }
+
+  .bottom {
+    text-align: center;
+
+    h4 {
+      font-size: 3rem;
+      font-family: "Varela Round", sans-serif;
+      font-weight: bolder;
+      color: #14144b;
+    }
+
+    p {
+      margin-top: 2rem;
+      font-size: 2rem;
+      font-weight: bolder;
+      font-family: "Varela Round", sans-serif;
+      color: red;
+    }
+  }
+
+  @media (max-width: 1024px) {
+  }
+}

@@ -21,16 +21,23 @@ const Nav = () => {
           <li>{auth ? <Link to="/products">All Products</Link> : null}</li>
           <li>{auth ? <Link to="/add">Add Product</Link> : null}</li>
           <li>{auth ? <Link to="/update">Update Product</Link> : null}</li>
-          <li>
-            {auth ? (
+          <li>{auth ? <Link to="/profile">Profile</Link> : null}</li>
+          {auth ? (
+            <li>
               <Link to="/signup" onClick={logoutUser}>
                 Logout
               </Link>
-            ) : (
-              <Link to="/signup">SignUp</Link>
-            )}
-          </li>
-          <li>{auth ? <Link to="/profile">Profile</Link> : null}</li>
+            </li>
+          ) : (
+            <>
+              <li>
+                <Link to="/signup">SignUp</Link>
+              </li>
+              <li>
+                <Link to="/login">Login</Link>
+              </li>
+            </>
+          )}
         </ul>
       </div>
     </div>

@@ -1,29 +1,30 @@
 import React, { useState, useEffect } from "react";
-import "../sass/SignUp.scss";
-import { Link,useNavigate } from "react-router-dom";
+import "../sass/Login.scss";
+import { Link, useNavigate } from "react-router-dom";
 
-const SignUp = () => {
-  const [name, setName] = useState("");
+const Login = () => {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
+
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
 
     try {
-      let result = await fetch("http://localhost:5000/register", {
+      let result = await fetch("http://localhost:5000/login", {
         method: "post",
-        body: JSON.stringify({ name, email, pass }),
+        body: JSON.stringify({ email, pass }),
         headers: {
           "Content-Type": "application/json",
         },
       });
-
       result = await result.json();
       console.log(result);
-      localStorage.setItem("userData", JSON.stringify(result));
-      navigate("/");
+      if (result.name) {
+        localStorage.setItem("userData", JSON.stringify(result));
+        navigate("/");
+      }
     } catch (error) {
       console.log(`something viscious happened -> ${error}`);
     }
@@ -38,35 +39,29 @@ const SignUp = () => {
 
   return (
     <>
-      <h3>Register</h3>
-      <div className="signup">
-        <input
-          type="text"
-          placeholder="Enter Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
+      <h3>Login Page</h3>
+      <div className="login">
         <input
           type="email"
-          placeholder="Enter Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          placeholder="Enter Email"
         />
         <input
           type="password"
-          placeholder="Enter Password"
           value={pass}
           onChange={(e) => setPass(e.target.value)}
+          placeholder="Enter Password"
         />
-        <button type="button" className="button" onClick={handleSubmit}>
-          Sign Up
+        <button type="button" className="button" onClick={handleLogin}>
+          Login
         </button>
-        <p>Already an existing user....?
-        Go to <Link to='/login'>Login</Link>
+        <p>Are you a new user....?
+        Go to <Link to='/signup'>Sign UP</Link>
         </p>
       </div>
     </>
   );
 };
 
-export default SignUp;
+export default Login;

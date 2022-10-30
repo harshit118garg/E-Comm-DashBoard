@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 import PrivateComp from "./components/PrivateComp";
 /* Pages */
 import SignUp from "./pages/SignUp";
+import Login from "./pages/Login";
 
 function App() {
   return (
@@ -21,10 +22,10 @@ function App() {
             <Route path="/products" element={<h3>Product Page</h3>} />
             <Route path="/add" element={<h3>Add Product Page</h3>} />
             <Route path="/update" element={<h3>Update Product Page</h3>} />
-            {/* <Route path="/logout" element={<h3>Logout Page</h3>} /> */}
             <Route path="/profile" element={<h3>Profile Page</h3>} />
           </Route>
 
+          <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
         </Routes>
       </section>

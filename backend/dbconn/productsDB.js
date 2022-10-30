@@ -1,21 +1,11 @@
 const mongoose = require("mongoose");
 
-const connectDB = async () => {
-  try {
-    const conn = await mongoose.connect(process.env.MONGO_LOCAL_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
-    console.log(`database connectivity established ${conn.connection.host}`);
-    const productSchema = new mongoose.Schema({});
-    const products = mongoose.model('products', productSchema);
-    const data = await products.find();
+const productSchema = new mongoose.Schema({
+  name: String,
+  price: String,
+  category: String,
+  brand: String,
+  image: String
+});
 
-    // console.log(data);
-  } catch (error) {
-    console.log(error);
-    process.exit();
-  }
-};
-
-module.exports = connectDB;
+module.exports = mongoose.model("products", productSchema);

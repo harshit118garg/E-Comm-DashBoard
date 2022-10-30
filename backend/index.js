@@ -1,15 +1,19 @@
 const express = require("express");
+/* important packages */
 const dotenv = require("dotenv");
 const cors = require("cors");
-
-const connectDB = require("./dbconn/productsDB");
+/* database connection */
+const connectToDataBase = require("./dbconn/conn");
+/* schemas */
 const users = require("./dbconn/usersDB");
+const products = require("./dbconn/productsDB");
+/* port */
 const PORT = process.env.PORT || 5000;
 
 const app = express();
 
 dotenv.config();
-connectDB();
+connectToDataBase();
 
 app.use(
   cors({
@@ -22,6 +26,17 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.send("app is up & running");
 });
+
+app.get('/products', async (req, res) => {
+  let allProducts = await products.find();
+  res.send(allProducts);
+})
+
+app.post('/addproduct', async (req, res) => {
+  let newProduct= new products(req.body);
+  let result = await newProduct.save();
+  res.send(result); 
+})
 
 app.post("/register", async (req, res) => {
   let newuser = new users(req.body);

@@ -1,0 +1,32 @@
+.navbar {
+  height: 60px;
+  background-color: lightblue;
+  display: flex;
+  justify-content: space-around;
+  box-shadow: #32325d40 0 13px 27px -5px, #0000004d 0 8px 16px -8px;
+
+  .logo img {
+    height: 100%;
+    width: 150px;
+    padding: 4px;
+  }
+
+  .nav-ul {
+    ul {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+
+      li {
+        padding: 12px;
+        list-style: none;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+}

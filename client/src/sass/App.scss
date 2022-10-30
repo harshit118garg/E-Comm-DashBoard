@@ -1,0 +1,19 @@
+.main {
+  background-color: #c2f9f5;
+  margin: 2rem 8rem;
+  height: calc(92vh - 60px - 45px);
+  border-radius: 2rem;
+  box-shadow: 0px 0px 15px 10px rgba(0, 0, 0, 0.1);
+
+  h3 {
+    font-family: "Varela Round", sans-serif;;
+    font-size: 5rem;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: purple;
+    border-radius: 2rem;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    color: whitesmoke;
+  }
+}

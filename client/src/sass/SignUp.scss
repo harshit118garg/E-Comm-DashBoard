@@ -40,5 +40,11 @@
     margin-top: 2rem;
     text-align: center;
     font-size: 16px;
+
+    span {
+      a {
+        color: orangered;
+      }
+    }
   }
 }

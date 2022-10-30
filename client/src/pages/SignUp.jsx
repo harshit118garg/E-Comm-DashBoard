@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../sass/SignUp.scss";
-import { Link,useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const SignUp = () => {
   const [name, setName] = useState("");
@@ -61,8 +61,11 @@ const SignUp = () => {
         <button type="button" className="button" onClick={handleSubmit}>
           Sign Up
         </button>
-        <p>Already an existing user....?
-        Go to <Link to='/login'>Login</Link>
+        <p>
+          Already an existing user....? Go to{" "}
+          <span>
+            <Link to="/login">Login</Link>
+          </span>
         </p>
       </div>
     </>

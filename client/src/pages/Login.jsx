@@ -56,8 +56,11 @@ const Login = () => {
         <button type="button" className="button" onClick={handleLogin}>
           Login
         </button>
-        <p>Are you a new user....?
-        Go to <Link to='/signup'>Sign UP</Link>
+        <p>
+          Are you a new user....? Go to{" "}
+          <span>
+            <Link to="/signup">Sign UP</Link>
+          </span>
         </p>
       </div>
     </>

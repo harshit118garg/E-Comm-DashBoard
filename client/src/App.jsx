@@ -9,6 +9,7 @@ import PrivateComp from "./components/PrivateComp";
 /* Pages */
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
+import Home from "./pages/Home";
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
       <Nav />
       <section className="main">
         <Routes>
-          <Route path="/" element={<h3>Home Page</h3>} />
+          <Route path="/" element={<Home />} />
 
           <Route element={<PrivateComp />}>
             <Route path="/products" element={<h3>Product Page</h3>} />

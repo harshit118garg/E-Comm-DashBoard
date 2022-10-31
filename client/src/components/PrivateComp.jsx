@@ -5,7 +5,7 @@ const PrivateComp = () => {
     const auth = localStorage.getItem('userData');
   return (
     <>
-        {auth ? <Outlet /> : <Navigate to='/signup' />}
+        {auth ? <Outlet /> : <Navigate to='/login' />}
     </>
   )
 }

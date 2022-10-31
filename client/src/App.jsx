@@ -22,9 +22,9 @@ function App() {
 
           <Route element={<PrivateComp />}>
             <Route path="/products" element={<Products />} />
-            <Route path="/add" element={<h3>Add Product Page</h3>} />
-            <Route path="/update" element={<h3>Update Product Page</h3>} />
-            <Route path="/profile" element={<h3>Profile Page</h3>} />
+            <Route path="/add" element={<h3>Add Product</h3>} />
+            <Route path="/update" element={<h3>Update Product</h3>} />
+            <Route path="/profile" element={<h3>Profile</h3>} />
           </Route>
 
           <Route path="/login" element={<Login />} />

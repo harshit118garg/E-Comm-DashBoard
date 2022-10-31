@@ -5,8 +5,8 @@ const cors = require("cors");
 /* database connection */
 const connectToDataBase = require("./dbconn/conn");
 /* schemas */
-const users = require("./dbconn/usersDB");
-const products = require("./dbconn/productsDB");
+const users = require("./schemas/usersDB");
+const products = require("./schemas/productsDB");
 /* port */
 const PORT = process.env.PORT || 5000;
 
@@ -27,16 +27,16 @@ app.get("/", (req, res) => {
   res.send("app is up & running");
 });
 
-app.get('/products', async (req, res) => {
+app.get("/products", async (req, res) => {
   let allProducts = await products.find();
   res.send(allProducts);
-})
+});
 
-app.post('/addproduct', async (req, res) => {
-  let newProduct= new products(req.body);
+app.post("/addproduct", async (req, res) => {
+  let newProduct = new products(req.body);
   let result = await newProduct.save();
-  res.send(result); 
-})
+  res.send(result);
+});
 
 app.post("/register", async (req, res) => {
   let newuser = new users(req.body);

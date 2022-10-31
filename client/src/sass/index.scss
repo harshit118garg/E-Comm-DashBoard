@@ -10,6 +10,27 @@
   --font1: "Varela Round", sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+  scrollbar-color: #a1a1e6 #514f4f;
+}
+
+::-webkit-scrollbar {
+  width: 1rem;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f5b770;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #514f4f;
+  border-radius: 1rem;
+  border: 5px solid transparent;
+  background-clip: content-box;
+}
+
 body {
   background-color: #f2f3ad;
 }

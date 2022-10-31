@@ -11,6 +11,7 @@ import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
 import Products from "./pages/Products";
+import AddProduct from "./pages/AddProduct";
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
 
           <Route element={<PrivateComp />}>
             <Route path="/products" element={<Products />} />
-            <Route path="/add" element={<h3>Add Product</h3>} />
+            <Route path="/add" element={<AddProduct />} />
             <Route path="/update" element={<h3>Update Product</h3>} />
             <Route path="/profile" element={<h3>Profile</h3>} />
           </Route>

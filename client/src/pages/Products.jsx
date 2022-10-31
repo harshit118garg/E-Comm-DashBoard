@@ -18,7 +18,7 @@ const Products = () => {
       <div className="products">
         <div className="productsContainer">
           {devices.map((device, index) => {
-            return <Card device={device} index={index} />;
+            return <Card device={device} key={index} />;
           })}
         </div>
       </div>

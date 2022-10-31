@@ -27,16 +27,32 @@ const AddProduct = () => {
   const [price, setprice] = useState("");
   const [category, setCategory] = useState(types[0]);
   const [brand, setBrand] = useState(deviceBrand[0]);
-  const [imgUrl, setImgUrl] = useState("");
+  const [image, setImgUrl] = useState("");
 
   const handleProductAdd = async (e) => {
     e.preventDefault();
 
-    console.log(`name -> ${name}`);
-    console.log(`price -> ${price}`);
-    console.log(`category -> ${category}`);
-    console.log(`brand -> ${brand}`);
-    console.log(`image Url -> ${imgUrl}`);
+    try {
+      const userData = JSON.parse(localStorage.getItem("userData"));
+      const userId = userData._id;
+      let result = await fetch("http://localhost:5000/addproduct", {
+        method: "post",
+        body: JSON.stringify({ name, price, category, brand, image, userId }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      result = await result.json();
+      // console.log(result);
+      alert("product added successfully");
+      setName("");
+      setprice("");
+      setCategory(types[0]);
+      setBrand(deviceBrand[0]);
+      setImgUrl("");
+    } catch (error) {
+      console.log(`something viscious happened -> ${error}`);
+    }
   };
 
   return (
@@ -68,7 +84,7 @@ const AddProduct = () => {
         <input
           type="text"
           placeholder="Enter Product Image URL"
-          value={imgUrl}
+          value={image}
           onChange={(e) => setImgUrl(e.target.value)}
         />
         <button type="button" className="button" onClick={handleProductAdd}>

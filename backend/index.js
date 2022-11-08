@@ -29,13 +29,26 @@ app.get("/", (req, res) => {
 
 app.get("/products", async (req, res) => {
   let allProducts = await products.find();
-  res.send(allProducts);
+  if (allProducts.length > 0) {
+    res.send(allProducts);
+  } else {
+    res.send({ result: "No Products Found" });
+  }
 });
 
 app.post("/addproduct", async (req, res) => {
   let newProduct = new products(req.body);
   let result = await newProduct.save();
   res.send(result);
+});
+
+app.delete("/product/:id", async (req, res) => {
+  try {
+    const result = await products.deleteOne({ _id: req.params.id });
+    res.send(result);
+  } catch (error) {
+    console.log(`an unexpected error has occured`);
+  }
 });
 
 app.post("/register", async (req, res) => {

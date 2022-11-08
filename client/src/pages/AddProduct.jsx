@@ -63,6 +63,7 @@ const AddProduct = () => {
       setCategory(types[0]);
       setBrand(deviceBrand[0]);
       setImgUrl("");
+      setError(false)
     } catch (error) {
       console.log(`something viscious happened -> ${error}`);
     }
